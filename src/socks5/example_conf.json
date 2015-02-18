@@ -1,0 +1,11 @@
+{
+  "ServerPort": 1080,
+  "AuthMethods": [
+    0,
+    2
+  ],
+  "UsrPwdPairs": {
+    "Usr1": "Pwd1",
+    "Usr2": "Pwd2"
+  }
+}
