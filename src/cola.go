@@ -3,33 +3,33 @@ package main
 import (
 	"flag"
 	"log"
-	"socks5"
+	"socks5/server"
 	"time"
 )
 
 func main() {
 	var (
 		cfgFile string
-		cfg     *socks5.Config
+		cfg     *server.Config
 		err     error
-		server  *socks5.Server
+		srv     *server.Server
 	)
 
 	flag.StringVar(&cfgFile, "c", "", "conf file")
 	flag.Parse()
 
-	if cfg, err = socks5.NewConfig(cfgFile); err != nil {
+	if cfg, err = server.NewConfig(cfgFile); err != nil {
 		log.Fatal(err)
 	}
 
-	server = &socks5.Server{
+	srv = &server.Server{
 		cfg,
 		time.Now(),
 	}
 
 	log.Println("Server is running")
 
-	if err = server.ListenAndServe(); err != nil {
+	if err = srv.ListenAndServe(); err != nil {
 		log.Fatal(err)
 	}
 }
