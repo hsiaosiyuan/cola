@@ -92,12 +92,14 @@ func (c *conn) serve() {
 	if err = c.negotiate(); err != nil {
 		c.server.Log(err)
 		c.close()
+		return
 	}
 
 	if err = c.exchange(); err != nil {
 		c.server.Log(err)
-		c.close()
 	}
+
+	c.close()
 }
 
 func (c *conn) negotiate() error {
