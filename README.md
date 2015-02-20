@@ -13,7 +13,7 @@ go run cola.go -c="your_config_file.json"
 curl -v --connect-timeout 5 --socks5 localhost:1080 www.baidu.com
 ```
 
-##Restrict
+##Restrictions
 1. Haven't support the *BIND* command.
 2. Supported authentication	methods are only *NO AUTHENTICATION* and *USERNAME/PASSWORD*.
 
