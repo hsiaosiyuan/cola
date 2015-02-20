@@ -25,7 +25,7 @@ func (s *Server) ListenAndServe() error {
 	)
 
 	addr = &net.TCPAddr{
-		[]byte{127, 0, 0, 1},
+		[]byte{0, 0, 0, 0},
 		int(s.Cfg.ServerPort),
 		"",
 	}
