@@ -14,8 +14,8 @@ curl -v --connect-timeout 5 --socks5 localhost:1080 www.baidu.com
 ```
 
 ##Restrict
-1. Haven't support the BIND command
-2. Supported authentication	method are only NO AUTHENTICATION and USERNAME/PASSWORD
+1. Haven't support the *BIND* command.
+2. Supported authentication	methods are only *NO AUTHENTICATION* and *USERNAME/PASSWORD*.
 
 ##TODO
-1. To support TLS
+1. To support TLS.
