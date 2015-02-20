@@ -176,7 +176,15 @@ func (c *conn) subNegotiateAuthUnPwd() error {
 	pwd = buf[3+uLen : 3+uLen+pLen]
 	ok = c.server.Cfg.AuthUnPwd(string(un), string(pwd))
 
-	return c.writeAuthUnPwdReplay(ok)
+	if err = c.writeAuthUnPwdReplay(ok); err != nil {
+		return err
+	}
+
+	if !ok {
+		return ErrAuthUnPwdInvalidUnOrPwd
+	}
+
+	return nil
 }
 
 func (c *conn) parseCommand() error {
