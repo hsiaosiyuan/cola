@@ -5,6 +5,7 @@ import (
 	"log"
 	"socks5/server"
 	"time"
+	"socks5"
 )
 
 func main() {
@@ -14,6 +15,8 @@ func main() {
 		err     error
 		srv     *server.Server
 	)
+	
+	socks5.IncreaseRlimit()
 
 	flag.StringVar(&cfgFile, "c", "", "conf file")
 	flag.Parse()
@@ -27,7 +30,7 @@ func main() {
 		time.Now(),
 	}
 
-	log.Println("Server is running")
+	log.Println("Cola is running")
 
 	if err = srv.ListenAndServe(); err != nil {
 		log.Fatal(err)

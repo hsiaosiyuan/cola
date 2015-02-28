@@ -4,6 +4,7 @@ import (
 	"socks5/client"
 	"flag"
 	"log"
+	"socks5"
 )
 
 func main() {
@@ -15,6 +16,8 @@ func main() {
 		pwd string
 		err error
 	)
+	
+	socks5.IncreaseRlimit()
 
 	flag.StringVar(&addr, "la", "", "local addrress")
 	flag.StringVar(&srvAddr, "sa", "", "server address")
@@ -35,7 +38,7 @@ func main() {
 	clt.Un = []byte(un)
 	clt.Pwd = []byte(pwd)
 
-	log.Println("Server is running")
+	log.Println("Coco is running")
 
 	if err = clt.ListenAndServe(); err != nil {
 		log.Fatal(err)
