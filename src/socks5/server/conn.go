@@ -8,7 +8,6 @@ import (
 	"net"
 	"strconv"
 	"sync"
-	"time"
 )
 
 const (
@@ -287,7 +286,6 @@ func (c *conn) parseDstAddr() error {
 func (c *conn) prepareExchange() error {
 	var (
 		err error
-		t time.Time
 	)
 
 	if c.dstConn, err = net.DialTCP("tcp", nil, c.dstAddr); err != nil {
@@ -313,9 +311,6 @@ func (c *conn) prepareExchange() error {
 			return ErrPrepareExchangeGeneral
 		}
 	}
-
-	t = time.Now().Add(time.Minute*2)
-	c.dstConn.SetDeadline(t)
 
 	return nil
 }
